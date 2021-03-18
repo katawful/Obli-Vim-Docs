@@ -52,26 +52,26 @@ Oblivion object types. For documentation purposes I have gathered the related
 values together. Any type which has a given quality has all of the values
 listed and all of the quality's functions may be applied to the type.
 
-|qualities-actor| 
-|qualities-actor-values| 
+|qualities-actor|
+|qualities-actor-values|
 |qualities-attacking|
 |qualities-audible|
-|qualities-breakable| 
+|qualities-breakable|
 |qualities-class|
-|qualities-container| 
-|qualities-description| 
+|qualities-container|
+|qualities-description|
 |qualities-edible|
-|qualities-enchantable| 
-|qualities-equippable| 
+|qualities-enchantable|
+|qualities-equippable|
 |qualities-inventory|
-|qualities-lockable| 
-|qualities-magic| 
+|qualities-lockable|
+|qualities-magic|
 |qualities-magic-target|
-|qualities-named| 
-|qualities-ownable| 
-|qualities-race| 
+|qualities-named|
+|qualities-ownable|
+|qualities-race|
 |qualities-scriptable|
-|qualities-simple| 
+|qualities-simple|
 |qualities-wearable|
 
 ------------------------------------------------------------------------------
@@ -82,11 +82,11 @@ Low Level Processing are saved in the savegame.
 
 Functions:
 
-*IsRefEssential* 
+*IsRefEssential*
 returns whether the referenced actor is essential
 `(isEssential:bool) reference.IsRefEssential`
 
-*SetRefEssential* 
+*SetRefEssential*
 sets the calling ref to be essential or not
 `reference.SetRefEssential isEssential:bool`
 
@@ -95,15 +95,15 @@ returns a float describing the amount of light falling on an actor, or 100 if
 the actor is not in high/medium-high process.
 `(lightAmount:float) reference.GetActorLightAmount`
 
-*CanCorpseCheck* 
+*CanCorpseCheck*
 returns 1 if the Can Corpse Check flag is set on the actor
 `(canCoprseCheck:bool) reference.CanCorpseCheck actor:ref`
 
-*SetCanCorpseCheck* 
+*SetCanCorpseCheck*
 changes the Can Corpse Check flag on the actor
 `(nothing) reference.SetCanCorpseCheck flag:int actor:ref`
 
-*GetActorMinLevel* 
+*GetActorMinLevel*
 returns the minimum level of the actor if the PC Level Offset flag is set
 `(minLevel:int) reference.GetActorMinLevel actor:ref`
 `(minLevel:int) reference.GetMinLevel actor:ref`
@@ -126,7 +126,7 @@ returns the soul level of any actor. If an NPC it returns Grand, otherwise if
 a creature it returns the creature's soul level.
 `(soulLevel:int) reference.GetActorSoulLevel actor:ref`
 
-*HasLowLevelProcessing* 
+*HasLowLevelProcessing*
 returns 1 if the actor has low level processing enabled
 `(hasLowProc:bool) reference.HasLowLevelProcessing actor:ref`
 
@@ -147,10 +147,10 @@ returns 1 if the actor's level is calculated relative to the player's level
 `(isLevOffset:bool) reference.IsPCLevelOffset actor:ref`
 
 *GetActorBaseLevel*
-returns the level of the base actor. In the editor, for
-creatures this is the "Level Offset" field; for NPCs it is the "Level" field.
-For either, the meaning of the return value depends on whether or not the PC
-Level Offset flag is set for the base actor.
+returns the level of the base actor. In the editor, for creatures this is the
+"Level Offset" field; for NPCs it is the "Level" field. For either, the
+meaning of the return value depends on whether or not the PC Level Offset flag
+is set for the base actor.
 `(level:int) reference.GetActorBaseLevel actorBase:ref`
 
 *IsSummonable*
@@ -423,10 +423,10 @@ applied.  The third parameter can be used to return an uncapped value - The
 result is capped at 100 by default.
 `(modifiedSkill:int) GetLuckModifiedSkill skillLevel:int luck:int capped:bool`
 
-*GetAVSkillMasteryLevel* 
+*GetAVSkillMasteryLevel*
 returns the current mastery level of an actor's skill. The mastery level is an
 integer from 0 (Novice) to 4 (Master).
-`(masteryLevel:int) reference.GetAVSkillMasteryLevel skill:actorValue` 
+`(masteryLevel:int) reference.GetAVSkillMasteryLevel skill:actorValue`
 
 *GetAVSkillMasteryLevelC*
 alternate version of GetAVSkillMasteryLevel taking an actor value for the
@@ -478,7 +478,7 @@ modifies the weapon speed up or down
 returns whether the object ignores normal damage resistance
 `(ignores:bool) reference.GetIgnoresResistance objectID:ref`
 
-*SetIgnoresResistance* 
+*SetIgnoresResistance*
 sets whether the object ignores normal damage resistance
 `(nothing) reference.SetIgnoresResistance shouldIgnore:bool objectID:ref`
 
@@ -559,13 +559,13 @@ sets the current health of the calling reference
 gets the current health of the object in the specified equipment slot
 `(health:float) reference.GetEquippedCurrentHealth slot:int`
 
-*SetEquippedCurrentHealth* 
+*SetEquippedCurrentHealth*
 sets the current health of the object in the specified equipment slot
 `(nothing) reference.SetEquippedCurrentHealth nuHealth:int slot:int`
 
 *ModEquippedCurrentHealth*
 modifies the current health of the object in the specified equipment slot up
-or down 
+or down
 `(nothing) reference.ModEquippedCurrentHealth modifyBy:float slot:int`
 
 ------------------------------------------------------------------------------
@@ -586,7 +586,7 @@ Specialization (short) -  the specialization of the class
 Functions:
 
 *GetClass*
-returns the class of the NPC 
+returns the class of the NPC
 `(class:ref) reference.GetClass npc:ref`
 
 *GetClassAttribute*
@@ -637,7 +637,7 @@ returns an Array containing the seven major skills associated with the class.
 If the parameter is omitted, the class of the calling NPC is used.
 `(skills:Array) reference.GetClassSkills class:ref`
 
-*SetClassSkills* 
+*SetClassSkills*
 accepts an Array of seven different skill codes and sets them
 as the class's major skills. If fewer or more than seven skills are found in
 the array or duplicate skills are found, the function will return zero with no
@@ -955,7 +955,7 @@ sets the weight of the type
 `(nothing) reference.SetWeight nuWeight:float objectID:ref`
 
 *ModWeight*
-modifies the weight of the type up or down 
+modifies the weight of the type up or down
 `(nothing) reference.ModWeight modifyBy:float objectID:ref`
 
 *GetGoldValue*
@@ -1711,7 +1711,7 @@ argument defaults to 1; pass 0 to clear a previously created alias.
 
 *GetRaceVoice*
 returns the race which is used to provide the voice of the specified race and
-gender. Pass 0 for male or 1 for female. 
+gender. Pass 0 for male or 1 for female.
 `(voiceRace:ref) GetRaceVoice race:ref whichGender:int`
 
 *SetRaceVoice*
@@ -1923,7 +1923,7 @@ modifies the model path of the calling reference or passed objectID. The
 {toReplaceAndReplaceWith} string has the following format:
 "`{toReplace|replaceWith}`". ModModelPath will do a case insensitve search
 for the {toReplace} portion and if found will replace it with the
-{replaceWith} portion.  The | character is used to separate the portions of
+{replaceWith} portion. The | character is used to separate the portions of
 the string. If there is nothing before the | character, the replaceWith string
 is prepended to the model path. In the console, use @ instead of |.
 `(nothing) reference.ModModelPath toReplaceAndReplaceWith:string toObject:ref`
@@ -1933,7 +1933,7 @@ modifies the icon path of the calling reference or passed objectID. The
 {toReplaceAndReplaceWith} string has the following format:
 "`{toReplace|replaceWith}`". ModIconPath will do a case insensitve search
 for the toReplace portion and if found will replace it with the {replaceWith}
-portion.  The | character is used to separate the portions of the string. If
+portion. The | character is used to separate the portions of the string. If
 there is nothing before the | character, the {replaceWith} string is prepended
 to the icon path. In the console, use @ instead of |.
 `(nothing) reference.ModIconPath toReplaceAndReplaceWith:string toObject:ref`
@@ -2746,7 +2746,7 @@ called while the player is inside the specified cell.
 `(nothing) SetCellBehavesAsExterior cell:ref behavesAsExterior:bool`
 
 *GetCellClimate*
-returns the climate for the specified cell. 
+returns the climate for the specified cell.
 `(climate:ref) GetCellClimate cell:ref`
 
 *SetCellClimate*
@@ -2757,7 +2757,7 @@ sets the climate for the specified cell.
 returns a StringMap describing the lighting properties for the interior cell.
 The StringMap contains the following key-value pairs corresponding to the
 fields in the editor's Cell Lighting tab, where 'RGB Array' is a 3-element
-Array with values from 0-255 in the order {red, green, blue}: 
+Array with values from 0-255 in the order {red, green, blue}:
 	'ambient' (RGB Array)
 	'directional' (RGB Array)
 	'fog' (RGB Array)
@@ -3591,7 +3591,7 @@ expires.
 `(timeLeft:float) reference.GetEquippedTorchTimeLeft`
 
 *SetTimeLeft*
-sets the amount of time before the calling light reference expires. 
+sets the amount of time before the calling light reference expires.
 `(nothing) reference.SetTimeLeft timeLeft:float`
 
 ------------------------------------------------------------------------------
@@ -4282,7 +4282,7 @@ optional sixth argument to include them.
 	\ `extentY:float angle:float includeDisabledNodes:bool`
 
 *GetPathNodePos*
-returns the x, y, or z coordinate of the specified path node. 
+returns the x, y, or z coordinate of the specified path node.
 `(pos:float) GetPathNodePos nodeID:int whichPos:axis`
 
 *IsPathNodeDisabled*
@@ -4798,7 +4798,7 @@ successful. In order for a reference to be deleted, it must:
 
 The primary aim of this function is to combat the savegame bloat resulting
 from generation of large numbers of dynamic references. In most cases, it is
-better to avoid creating such bloat in the first place. (Note: IsRefDeleted is
+better to avoid creating such bloat in the first place. (Note: |IsRefDeleted| is
 not related to this command in any way).
 `(wasRefDeleted:bool) reference.DeleteReference`
 
@@ -4966,7 +4966,7 @@ skill.
 
 *GetSkillSpecialization*
 returns the skill's specialization as an integer.  0: Combat, 1: Magic, or 2:
-Stealth. 
+Stealth.
 `(specialization:int) GetSkillSpecialization skill:actorValue`
 
 *GetSkillSpecializationC*
@@ -4976,7 +4976,7 @@ skill.
 
 *SetSkillSpecialization*
 sets the skill's specialization as an integer. 0: Combat, 1: Magic, or 2:
-Stealth. 
+Stealth.
 `(nothing) SetSkillSpecialization skill:actorValue specialization:int`
 
 *SetSkillSpecializationC*
@@ -5033,7 +5033,7 @@ Functions:
 *GetSoundAttenuation*
 returns the specified attenuation value for the specified sound, where the
 attenuation is "max", "min", or "static"
-`(attenuation:float) GetSoundAttenuation sound:ref whichAttenuation:string ``
+`(attenuation:float) GetSoundAttenuation sound:ref whichAttenuation:string`
 
 *SetSoundAttenuation*
 sets the specified attenuation value for the specified sound, where the
@@ -5228,7 +5228,7 @@ returns the refID of the current weather
 returns the weather which is overriding the current weather as a result of the
 ForceWeather or SetWeather command with a non-zero "override" argument (for
 example, in the scripts which control weather near Oblivion gates), or zero if
-the weather is not being overridden. 
+the weather is not being overridden.
 `(override:ref) GetWeatherOverride`
 
 *GetWeatherWindSpeed*
@@ -5582,13 +5582,13 @@ player's system
 The returned StringMap has the following key/value pairs, all of which are
 integers:
 	Year         (1602 30827)
-	Month        (2-12)     
+	Month        (2-12)
 	DayOfWeek    (2:Sunday 7:Saturday)
-	Day          (2-31)     
-	Hour         (1-23)     
-	Minute       (1-59)     
-	Second       (1-59)     
-	Millisecond  (1-999)    
+	Day          (2-31)
+	Hour         (1-23)
+	Minute       (1-59)
+	Second       (1-59)
+	Millisecond  (1-999)
 
 
 *ActorValueToCode*
@@ -5846,7 +5846,7 @@ than using GetFirst/NextRef.
 `(actors:Array) GetLowActors`
 
 Example of ref looping (transfers all carriable items in the cell to the
-player's inventory):	
+player's inventory):
 `	ref nextItem`
 `	begin onActivate`
 `	set nextItem to GetFirstRef 70 ; get first carriable item`
@@ -6479,7 +6479,7 @@ example script using MessageBoxEX:
 
 The script displays a messageBox in the following format:
 	Press TAB to summon a companion Cost: 500 gold
-	[Adrian Decanus] [Shady Sam] [Cancel]                                   
+	[Adrian Decanus] [Shady Sam] [Cancel]
 
 *SetMessageSound*
 sets the sound which is to be played by the next call to MessageEX. The sound
@@ -6497,7 +6497,7 @@ the icon will be cleared.
 *DebugPrint*
 prints a message to the console only if debug mode has been enabled for the
 mod from which the calling script originates. Use SetDebugMode to toggle debug
-messages on or off. 
+messages on or off.
 `(nothing) DebugPrint formatString:string var1 var2 ... var20`
 
 *SetDebugMode*
@@ -6609,30 +6609,30 @@ the savegame and reset when a new savegame is loaded:
 sets the data value associated with the specified key for the mod to which the
 calling script belongs. The key must be a string; the data can be a string,
 number, or object. Keys are case-insensitive and unique only one data value
-can be associated with a particular key. 
+can be associated with a particular key.
 `(success:bool) SetModLocalData key:string data:multi`
 
 *GetModLocalData*
 gets the data value associated with the specified key for the mod to which the
-calling script belongs. If no data exists for the key, returns 0. 
+calling script belongs. If no data exists for the key, returns 0.
 `(data:multi) GetModLocalData key:string`
 
 *ModLocalDataExists*
 returns true if local data exists with the specified key for the mod to which
-the calling script belongs. 
+the calling script belongs.
 `(exists:bool) ModLocalDataExists key:string`
 
 *RemoveModLocalData*
 removes the data value associated with the specified key for the mod to which
 the calling script belongs. If no data exists for the key, returns false,
-otherwise returns true. 
+otherwise returns true.
 `(removed:bool) RemoveModLocalData key:string`
 
 *GetAllModLocalData*
 returns a StringMap consisting of all of the name-value entries for the mod
 local data associated with the mod to which the calling script belongs. This
 is a copy of the local data so modifying the array contents will not modify
-the stored data. 
+the stored data.
 `(data:StringMap) GetAllModLocalData`
 
 ==============================================================================
@@ -6925,11 +6925,11 @@ transaction has been returned to a particular script, subsequent calls to this
 function requesting the same type of transaction ("buy" or "sell") will return
 zero until a new transaction of that type takes place. The returned Stringmap
 contains the following information:
-	"seller" (ref): The actor who sold the item
-	"buyer" (ref): The actor who purchased the item
-	"item" (base object): The item purchased or sold
-	"quantity" (short): The number of items purchased or sold
-	"price" (short): The total cost of the transaction
+	'seller' (ref): The actor who sold the item
+	'buyer' (ref): The actor who purchased the item
+	'item' (base object): The item purchased or sold
+	'quantity' (short): The number of items purchased or sold
+	'price' (short): The total cost of the transaction
 
 `(transactionInfo:Stringmap) GetTransactionInfo transactionType:string`
 
@@ -7081,7 +7081,7 @@ repositions the cursor to the specified position. If the specified position is
 invalid (e.g. greater than the length of the text, or inside an html tag),
 returns false without modifying the input text; otherwise returns true. For
 books, the text must be in an appropriate format no invalid html tags should
-be present and the text must be prefixed with html of the format: 
+be present and the text must be prefixed with html of the format:
 	`<FONT face="#"><div align="align">`
 `(textSet:bool) SetInputText text:string newCursorPos:int`
 
@@ -7719,7 +7719,7 @@ is less than the second argument, and true if it is greater than or equal to
 the second argument. You can define 'less', 'greater', and 'equal' in whatever
 way makes sense for you provided your definitions provide a definitive
 ordering of any set of values; otherwise the sort may never terminate. The
-optional third argument sorts the elements in reverse order.  
+optional third argument sorts the elements in reverse order.
 `(sorted:Array) ar_CustomSort toSort:Array comparisonFunction:ref`
 	\ `reverse:bool`
 
@@ -7739,18 +7739,18 @@ Operators Symbol | Precedence | Function | Number of Operands | Description
 	Right-associative. The value of the assignment is the right-most
 	operand. Supports multiple assignment i.e. a := b := c := 0 sets all 3
 	variables to zero. Assignment of strings creates a copy of the string,
-	whereas assignment of arrays creates a reference to the array.              
-`||  1  Logical Or  2`  True if either expression is true.              
-`&&  2  Logical And  2`  True if both expressions are true.              
+	whereas assignment of arrays creates a reference to the array.
+`||  1  Logical Or  2`  True if either expression is true.
+`&&  2  Logical And  2`  True if both expressions are true.
 `+=  2  Add and Assign  2`  Adds the expression on the right to the variable
-	or array element on the left.          
+	or array element on the left.
 `-=  2  Subtract and Assign  2`  Subtracts the expression on the right from the
-	variable or array element on the left.              
+	variable or array element on the left.
 `*=  2  Multiply and Assign  2`  Multiplies the variable or array element on
-	the left by the expression on the right.              
-`/=  2  Divide and Assign  2`  Divides the variable or array element on the 
+	the left by the expression on the right.
+`/=  2  Divide and Assign  2`  Divides the variable or array element on the
 	left by the expression on the right.
-`^=  2  Exponent and Assign  2`  Raises the variable or array element on the 
+`^=  2  Exponent and Assign  2`  Raises the variable or array element on the
 	left to the power of the expression on the right.
 `:   3  Slice/Range  2`  Specifies a range of elements in a string or array.
 	For strings, creates a substring. For arrays, creates a copy of the
@@ -7759,51 +7759,51 @@ Operators Symbol | Precedence | Function | Number of Operands | Description
 	backwards.
 `::  3  Make Pair  2`  Specifies a key-value pair. The lefthand operand
 	defines the key as a numeric or string value, and the righthand
-	operand defines the value (of any type).              
-`==  4  Equality  2`  True if the operands are equal. Operands must be 
-	comparable to each other.              
-`!=  4  Inequality  2`  True if the operands are not equal.              
+	operand defines the value (of any type).
+`==  4  Equality  2`  True if the operands are equal. Operands must be
+	comparable to each other.
+`!=  4  Inequality  2`  True if the operands are not equal.
 `>   5  Greater  Than  2`  Operands must be comparable and ordered. For strings,
 	comparison is case-insensitive.
 `<   5  Less  Than  2`  For strings, case-insensitive.
 `>=  5  Greater  or  Equal  2`  For strings, case-insensitive.
 `<=  5  Less  than  or  Equal  2`  For strings, case-insensitive.
-`|   6  Bitwise  Or  2`  Performs a bitwise or, demoting the operands to integers.              
-`&   7  Bitwise  And  2`  Performs a bitwise and, demoting the operands to 
-	integers.              
+`|   6  Bitwise  Or  2`  Performs a bitwise or, demoting the operands to integers.
+`&   7  Bitwise  And  2`  Performs a bitwise and, demoting the operands to
+	integers.
 `<<  8  Binary  Left  Shift  2`  Shifts left operand left by specified number
-	of bits, demoting both operands to integers.              
+	of bits, demoting both operands to integers.
 `>>  8  Binary  Right  Shift  2`  Shifts left operand right by specified number
-	of bits, demoting both operands to integers.              
+	of bits, demoting both operands to integers.
 `+   9  Addition/Concatentation  2`  Adds two numbers or joins two strings.
 `-   9  Subtraction     2`  Self-explanatory.
 `*   10 Multiplication  2`  Self-explanatory.
 `/   10 Division        2`  Self-explanatory.
-`%   10 Modulo  2`  Returns the remainder of integer division.              
+`%   10 Modulo  2`  Returns the remainder of integer division.
 `^   11 Exponentiation  2`  Raises left operand to the power of the right
-	operand.               
-`-   12 Negation  1`  Returns the opposite of an expression.              
-`$   12 Stringize  1`  Returns a string representation of an expression. 
-	(Shorthand for ToString).         
+	operand.
+`-   12 Negation  1`  Returns the opposite of an expression.
+`$   12 Stringize  1`  Returns a string representation of an expression.
+	(Shorthand for ToString).
 `#   12 Numericize  1`  Returns the numeric value of a string.
-	(Shorthand for ToNumber).              
-`*   12 Dereference/Unbox  1 ` Dereferences an array. If the array is a 
+	(Shorthand for ToNumber).
+`*   12 Dereference/Unbox  1 ` Dereferences an array. If the array is a
 	StringMap with a "value" key, returns the value associated with that
-	key.  Otherwise returns the value of the first element.              
+	key.  Otherwise returns the value of the first element.
 `&   12 Box  1`  "Boxes" a value of any type, returning an Array containing
 	that value as its only element. The value can be retrieved with the
-	unary * (unbox) operator.              
+	unary * (unbox) operator.
 `!   13 Logical  Not  1`  Returns the opposite of a boolean expression. i.e.
-	!(true) evaluates to false.              
+	!(true) evaluates to false.
 `( ) 14 Parentheses  0`  Enclose expressions within parentheses to override
 	default precedence rules.
 `[ ] 15 Subscript  2`  For arrays, accesses the element having the specified
 	key. For strings, returns a string containing the single character at
 	the specified position. The expression within the brackets is treated
 	as if it were parenthesized (overrides precedence rules).
-`->  15  Member  Access  2`  The lefthand operand is a StringMap having a key 
+`->  15  Member  Access  2`  The lefthand operand is a StringMap having a key
 	specified by the righthand operand. Returns the value associated with
-	that key. Example: 'dict->key' is equivalent to 'dict["key"]'    
+	that key. Example: 'dict->key' is equivalent to 'dict["key"]'
 
 Using OBSE expressions in scripts
 
@@ -8569,76 +8569,76 @@ Oblivion has a variety of type codes for various functions and values.
 ------------------------------------------------------------------------------
 Form Type IDs						*form-type-ids*
 
-0:   None             
-1:   TES4             
-2:   Group            
-3:   GMST             
-4:   Global           
-5:   Class            
-6:   Faction          
-7:   Hair             
-8:   Eyes             
-9:   Race             
-10:  Sound            
-11:  Skill            
-12:  Effect           
-13:  Script           
-14:  LandTexture      
-15:  Enchantment      
-16:  Spell            
-17:  BirthSign        
-18:  Activator        
-19:  Apparatus        
-20:  Armor            
-21:  Book             
-22:  Clothing         
-23:  Container        
-24:  Door             
-25:  Ingredient       
-26:  Light            
-27:  Misc             
-28:  Stat             
-29:  Grass            
-30:  Tree             
-31:  Flora            
-32:  Furniture        
-33:  Weapon           
-34:  Ammo             
-35:  NPC              
-36:  Creature         
-37:  LeveledCreature  
-38:  SoulGem          
-39:  Key              
-40:  AlchemyItem      
-41:  SubSpace         
-42:  SigilStone       
-43:  LeveledItem      
-44:  SNDG             
-45:  Weather          
-46:  Climate          
-47:  Region           
-48:  Cell             
-49:  REFR             
-50:  ACHR             
-51:  ACRE             
-52:  PathGrid         
-53:  WorldSpace       
-54:  Land             
-55:  TLOD             
-56:  Road             
-57:  Dialog           
-58:  DialogInfo       
-59:  Quest            
-60:  Idle             
-61:  Package          
-62:  CombatStyle      
-63:  LoadScreen       
-64:  LeveledSpell     
-65:  ANIO             
-66:  WaterForm        
-67:  EffectShader     
-68:  TOFT             
-69:  Actors           
+0:   None
+1:   TES4
+2:   Group
+3:   GMST
+4:   Global
+5:   Class
+6:   Faction
+7:   Hair
+8:   Eyes
+9:   Race
+10:  Sound
+11:  Skill
+12:  Effect
+13:  Script
+14:  LandTexture
+15:  Enchantment
+16:  Spell
+17:  BirthSign
+18:  Activator
+19:  Apparatus
+20:  Armor
+21:  Book
+22:  Clothing
+23:  Container
+24:  Door
+25:  Ingredient
+26:  Light
+27:  Misc
+28:  Stat
+29:  Grass
+30:  Tree
+31:  Flora
+32:  Furniture
+33:  Weapon
+34:  Ammo
+35:  NPC
+36:  Creature
+37:  LeveledCreature
+38:  SoulGem
+39:  Key
+40:  AlchemyItem
+41:  SubSpace
+42:  SigilStone
+43:  LeveledItem
+44:  SNDG
+45:  Weather
+46:  Climate
+47:  Region
+48:  Cell
+49:  REFR
+50:  ACHR
+51:  ACRE
+52:  PathGrid
+53:  WorldSpace
+54:  Land
+55:  TLOD
+56:  Road
+57:  Dialog
+58:  DialogInfo
+59:  Quest
+60:  Idle
+61:  Package
+62:  CombatStyle
+63:  LoadScreen
+64:  LeveledSpell
+65:  ANIO
+66:  WaterForm
+67:  EffectShader
+68:  TOFT
+69:  Actors
 70:  Inventory items
 72:  MapMarker references
 
@@ -8647,51 +8647,51 @@ Equipment Slot IDs					*equipment-slot-ids*
 
 These are return values only
 
-0:   head                         
-1:   hair                         
-2:   upper body                 
-3:   lower body                 
-4:   hand                         
-5:   foot                         
-6:   right ring                 
-7:   left ring                 
-8:   amulet                       
-9:   weapon                       
-10:  back weapon               
-11:  side weapon               
-12:  quiver                       
-13:  shield                       
-14:  torch                        
-15:  tail                         
-16:  weapon                       
-17:  ammo                         
-18:  lower and upper body  
+0:   head
+1:   hair
+2:   upper body
+3:   lower body
+4:   hand
+5:   foot
+6:   right ring
+7:   left ring
+8:   amulet
+9:   weapon
+10:  back weapon
+11:  side weapon
+12:  quiver
+13:  shield
+14:  torch
+15:  tail
+16:  weapon
+17:  ammo
+18:  lower and upper body
 19:  lower and upper and foot
 20:  lower, upper, hand and foot
-21:  lower, upper, and hand  
-22:  upper and hand         
+21:  lower, upper, and hand
+22:  upper and hand
 
 ------------------------------------------------------------------------------
 Equipment slot bit assignments				*equipment-slot-bit*
 
-0x00000001  1       Head        
-0x00000002  2       Hair        
-0x00000004  4       UpperBody   
-0x00000008  8       LowerBody   
-0x00000010  16      Hand        
-0x00000020  32      Foot        
-0x00000040  64      RightRing   
-0x00000080  128     LeftRing    
-0x00000100  256     Amulet      
-0x00000200  512     Weapon      
-0x00000400  1024    BackWeapon  
-0x00000800  2048    SideWeapon  
-0x00001000  4096    Quiver      
-0x00002000  8192    Shield      
-0x00004000  16384   Torch       
-0x00008000  32768   Tail        
-0x00010000  65536   Weapon      
-0x00020000  131072  Ammo        
+0x00000001  1       Head
+0x00000002  2       Hair
+0x00000004  4       UpperBody
+0x00000008  8       LowerBody
+0x00000010  16      Hand
+0x00000020  32      Foot
+0x00000040  64      RightRing
+0x00000080  128     LeftRing
+0x00000100  256     Amulet
+0x00000200  512     Weapon
+0x00000400  1024    BackWeapon
+0x00000800  2048    SideWeapon
+0x00001000  4096    Quiver
+0x00002000  8192    Shield
+0x00004000  16384   Torch
+0x00008000  32768   Tail
+0x00010000  65536   Weapon
+0x00020000  131072  Ammo
 0x00040000  262144  Ranged Weapon
 
 ------------------------------------------------------------------------------
@@ -8707,9 +8707,9 @@ Weapon Type
 
 Apparatus Type
 0:  Mortar&Pestle
-1:  Alembic        
-2:  Calcinator     
-3:  Retort         
+1:  Alembic
+2:  Calcinator
+3:  Retort
 
 Apparatus Quality Levels
 0.10:  Novice
@@ -8776,35 +8776,35 @@ Class Specialization Codes
 2:  Stealth
 
 Input Control IDs
-0:   Forward       
-1:   Back          
+0:   Forward
+1:   Back
 2:   Slide Left
 3:   Slide Right
-4:   Use           
-5:   Activate      
-6:   Block         
-7:   Cast          
+4:   Use
+5:   Activate
+6:   Block
+7:   Cast
 8:   Ready Item
-9:   Crouch/Sneak  
-10:  Run           
+9:   Crouch/Sneak
+10:  Run
 11:  Always Run
 12:  Auto Move
-13:  Jump          
+13:  Jump
 14:  Toggle POV
 15:  Menu Mode
-16:  Rest         
+16:  Rest
 17:  Quick Menu
-18:  Quick1        
-19:  Quick2        
-20:  Quick3        
-21:  Quick4        
-22:  Quick5        
-23:  Quick6        
-24:  Quick7        
-25:  Quick8        
-26:  QuickSave     
-27:  QuickLoad     
-28:  Grab          
+18:  Quick1
+19:  Quick2
+20:  Quick3
+21:  Quick4
+22:  Quick5
+23:  Quick6
+24:  Quick7
+25:  Quick8
+26:  QuickSave
+27:  QuickLoad
+28:  Grab
 
 Creature Type
 0:  Creature
@@ -8815,33 +8815,33 @@ Creature Type
 5:  Giant
 
 HDR Value
-0:   Eye Adapt          
-1:   Blur Radius         
-2:   Blur Passes         
-3:   Emissive Mult           
-4:   Target LUM            
-5:   Upper LUM Clamp  
-6:   Bright Scale          
-7:   Bright Clamp          
+0:   Eye Adapt
+1:   Blur Radius
+2:   Blur Passes
+3:   Emissive Mult
+4:   Target LUM
+5:   Upper LUM Clamp
+6:   Bright Scale
+7:   Bright Clamp
 8:   LUM Ramp No Tex
-9:   LUM Ramp Min    
-10:  LUM Ramp Max    
-11:  Sunlight Dimmer         
-12:  Grass Dimmer         
-13:  Tree Dimmer         
+9:   LUM Ramp Min
+10:  LUM Ramp Max
+11:  Sunlight Dimmer
+12:  Grass Dimmer
+13:  Tree Dimmer
 
 Weather Color
 0:   Sky Upper
-1:   Fog       
+1:   Fog
 2:   Clouds Lower
-3:   Ambient    
-4:   Sunlight   
-5:   Sun        
-6:   Stars      
+3:   Ambient
+4:   Sunlight
+5:   Sun
+6:   Stars
 7:   Sky Lower
-8:   Horizon    
+8:   Horizon
 9:   Clouds Upper
-10:  Lightning  
+10:  Lightning
 
 Weather Time
 0:  Sunrise
@@ -8860,7 +8860,7 @@ Music Type
 2:  Dungeon
 
 Projectile Type
-0:  Arrow  
+0:  Arrow
 1:  Magic Ball
 2:  Magic Fog
 3:  Magic Bolt
@@ -8964,15 +8964,15 @@ For actors, the level at which the game processes their AI.
 3:  Low
 
 Map Marker Types
-1:   Camp        
-2:   Cave        
-3:   City        
+1:   Camp
+2:   Cave
+3:   City
 4:   Elven Ruin
 5:   Fort Ruin
-6:   Mine        
-7:   Landmark    
-8:   Tavern      
-9:   Settlement  
+6:   Mine
+7:   Landmark
+8:   Tavern
+9:   Settlement
 10:  Daedric Shrine
 11:  Oblivion Gate
 
@@ -8984,28 +8984,28 @@ Weather Classifications
 4:  Snow
 
 Package Object Codes
-1:   Activator   
-2:   Apparatus   
-3:   Armor       
-4:   Book        
-5:   Clothing    
-6:   Container   
-7:   Door        
-8:   Ingredient  
-9:   Light       
-10:  Misc        
-11:  Flora       
-12:  Furniture   
+1:   Activator
+2:   Apparatus
+3:   Armor
+4:   Book
+5:   Clothing
+6:   Container
+7:   Door
+8:   Ingredient
+9:   Light
+10:  Misc
+11:  Flora
+12:  Furniture
 13:  Weapon (Any)
-14:  Ammo        
-15:  NPC         
-16:  Creature    
-17:  Soulgem     
-18:  Key         
-19:  Alchemy     
-20:  Food        
+14:  Ammo
+15:  NPC
+16:  Creature
+17:  Soulgem
+18:  Key
+19:  Alchemy
+20:  Food
 21:  Combat Wearable
-22:  Wearable    
+22:  Wearable
 23:  Weapon None
 24:  Weapon Melee
 25:  Weapon Ranged
@@ -9094,141 +9094,141 @@ Surface Type Codes
 ------------------------------------------------------------------------------
 Actor Value Codes					*actor-value-codes*
 
-0:    Strength                    
-1:    Intelligence                
-2:    Willpower                   
-3:    Agility                     
-4:    Speed                       
-5:    Endurance                   
-6:    Personality                 
-7:    Luck                        
-8:    Health                      
-9:    Magicka                     
-10:   Fatigue                     
-11:   Encumbrance                 
-12:   Armorer                     
-13:   Athletics                   
-14:   Blade                       
-15:   Block                       
-16:   Blunt                       
-17:   HandToHand                  
-18:   HeavyArmor                  
-19:   Alchemy                     
-20:   Alteration                  
-21:   Conjuration                 
-22:   Destruction                 
-23:   Illusion                    
-24:   Mysticism                   
-25:   Restoration                 
-26:   Acrobatics                  
-27:   LightArmor                  
-28:   Marksman                    
-29:   Mercantile                  
-30:   Security                    
-31:   Sneak                       
-32:   Speechcraft                 
-33:   Aggression                  
-34:   Confidence                  
-35:   Energy                      
-36:   Responsibility              
-37:   Bounty                      
-38:   Fame                        
-39:   Infamy                      
-40:   MagickaMultiplier           
-41:   NightEyeBonus               
-42:   AttackBonus                 
-43:   DefendBonus                 
-44:   CastingPenalty              
-45:   Blindness                   
-46:   Chameleon                   
-47:   Invisibility                
-48:   Paralysis                   
-49:   Silence                     
-50:   Confusion                   
-51:   DetectItemRange             
-52:   SpellAbsorbChance           
-53:   SpellReflectChance          
-54:   SwimSpeedMultiplier         
-55:   WaterBreathing              
-56:   WaterWalking                
-57:   StuntedMagicka              
-58:   DetectLifeRange             
-59:   ReflectDamage               
-60:   Telekinesis                 
-61:   ResistFire                  
-62:   ResistFrost                 
-63:   ResistDisease               
-64:   ResistMagic                 
-65:   ResistNormalWeapons         
-68:   ResistParalysis             
-67:   ResistPoison                
-68:   ResistShock                 
-69:   Vampirism                   
-70:   Darkness                    
-71:   ResistWaterDamage           
+0:    Strength
+1:    Intelligence
+2:    Willpower
+3:    Agility
+4:    Speed
+5:    Endurance
+6:    Personality
+7:    Luck
+8:    Health
+9:    Magicka
+10:   Fatigue
+11:   Encumbrance
+12:   Armorer
+13:   Athletics
+14:   Blade
+15:   Block
+16:   Blunt
+17:   HandToHand
+18:   HeavyArmor
+19:   Alchemy
+20:   Alteration
+21:   Conjuration
+22:   Destruction
+23:   Illusion
+24:   Mysticism
+25:   Restoration
+26:   Acrobatics
+27:   LightArmor
+28:   Marksman
+29:   Mercantile
+30:   Security
+31:   Sneak
+32:   Speechcraft
+33:   Aggression
+34:   Confidence
+35:   Energy
+36:   Responsibility
+37:   Bounty
+38:   Fame
+39:   Infamy
+40:   MagickaMultiplier
+41:   NightEyeBonus
+42:   AttackBonus
+43:   DefendBonus
+44:   CastingPenalty
+45:   Blindness
+46:   Chameleon
+47:   Invisibility
+48:   Paralysis
+49:   Silence
+50:   Confusion
+51:   DetectItemRange
+52:   SpellAbsorbChance
+53:   SpellReflectChance
+54:   SwimSpeedMultiplier
+55:   WaterBreathing
+56:   WaterWalking
+57:   StuntedMagicka
+58:   DetectLifeRange
+59:   ReflectDamage
+60:   Telekinesis
+61:   ResistFire
+62:   ResistFrost
+63:   ResistDisease
+64:   ResistMagic
+65:   ResistNormalWeapons
+68:   ResistParalysis
+67:   ResistPoison
+68:   ResistShock
+69:   Vampirism
+70:   Darkness
+71:   ResistWaterDamage
 256:  No Actor Value
 
 ------------------------------------------------------------------------------
 Menu Code							*menu-codes*
 
-1001:  Message        
-1002:  Inventory      
-1003:  Stats          
-1004:  HUDMain        
-1005:  HUDInfo        
-1006:  HUDReticle     
-1007:  Loading        
+1001:  Message
+1002:  Inventory
+1003:  Stats
+1004:  HUDMain
+1005:  HUDInfo
+1006:  HUDReticle
+1007:  Loading
 1008:  Container, Barter
-1009:  Dialog         
-1010:  HUDSubtitle    
-1011:  Generic        
-1012:  SleepWait      
-1013:  Pause          
-1014:  LockPick       
-1015:  Options        
-1016:  Quantity       
-1017:  Audio          
-1018:  Video          
-1019:  VideoDisplay   
-1020:  Gameplay       
-1021:  Controls       
-1022:  Magic          
-1023:  Map            
-1024:  MagicPopup     
-1025:  Negotiate      
-1026:  Book           
-1027:  LevelUp        
-1028:  Training       
-1029:  BirthSign      
-1030:  Class          
-1031:  Attributes     
-1032:  Skills         
-1033:  Specilization  
-1034:  Persuasion     
-1035:  Repair         
-1036:  RaceSex        
-1037:  SpellPurchase  
-1038:  Load           
-1039:  Save           
-1040:  Alchemy        
-1041:  SpellMaking    
-1042:  Enchantment    
-1043:  EffectSetting  
-1044:  Main           
-1045:  Breath         
-1046:  QuickKeys      
-1047:  Credits        
-1048:  SigilStone     
-1049:  Recharge       
-1051:  TextEdit       
+1009:  Dialog
+1010:  HUDSubtitle
+1011:  Generic
+1012:  SleepWait
+1013:  Pause
+1014:  LockPick
+1015:  Options
+1016:  Quantity
+1017:  Audio
+1018:  Video
+1019:  VideoDisplay
+1020:  Gameplay
+1021:  Controls
+1022:  Magic
+1023:  Map
+1024:  MagicPopup
+1025:  Negotiate
+1026:  Book
+1027:  LevelUp
+1028:  Training
+1029:  BirthSign
+1030:  Class
+1031:  Attributes
+1032:  Skills
+1033:  Specilization
+1034:  Persuasion
+1035:  Repair
+1036:  RaceSex
+1037:  SpellPurchase
+1038:  Load
+1039:  Save
+1040:  Alchemy
+1041:  SpellMaking
+1042:  Enchantment
+1043:  EffectSetting
+1044:  Main
+1045:  Breath
+1046:  QuickKeys
+1047:  Credits
+1048:  SigilStone
+1049:  Recharge
+1051:  TextEdit
 
 Menu Filter Codes
 
 Magic Menu:
-1:  Target  
-2:  Touch   
-3:  Self    
-7:  All     
+1:  Target
+2:  Touch
+3:  Self
+7:  All
 8:  Active Effects
 
 Container/Barter/Inventory Menu:
