@@ -129,8 +129,8 @@ GetArrowProjectilePoison	obse.txt	/*GetArrowProjectilePoison*
 GetAttackDamage	obse.txt	/*GetAttackDamage*
 GetBarterItem	obse.txt	/*GetBarterItem*
 GetBarterItemQuantity	obse.txt	/*GetBarterItemQuantity*
-GetBaseAV2	obse.txt	/*GetBaseAV2*
-GetBaseAV2C	obse.txt	/*GetBaseAV2C*
+GetBaseAV3	obse.txt	/*GetBaseAV3*
+GetBaseAV3C	obse.txt	/*GetBaseAV3C*
 GetBaseActorValueC	obse.txt	/*GetBaseActorValueC*
 GetBaseItems	obse.txt	/*GetBaseItems*
 GetBaseObject	obse.txt	/*GetBaseObject*
@@ -618,6 +618,7 @@ IsMovingBackward	obse.txt	/*IsMovingBackward*
 IsMovingForward	obse.txt	/*IsMovingForward*
 IsMovingLeft	obse.txt	/*IsMovingLeft*
 IsMovingRight	obse.txt	/*IsMovingRight*
+IsNaked	obse.txt	/*IsNaked*
 IsNthActiveEffectApplied	obse.txt	/*IsNthActiveEffectApplied*
 IsNthEffectItemScriptHostile	obse.txt	/*IsNthEffectItemScriptHostile*
 IsNthEffectItemScripted	obse.txt	/*IsNthEffectItemScripted*
@@ -699,9 +700,6 @@ MatrixScale	obse.txt	/*MatrixScale*
 MatrixSubtract	obse.txt	/*MatrixSubtract*
 MatrixTrace	obse.txt	/*MatrixTrace*
 MatrixTranspose	obse.txt	/*MatrixTranspose*
-MenuHoldKey	obse.txt	/*MenuHoldKey*
-MenuReleaseKey	obse.txt	/*MenuReleaseKey*
-MenuTapKey	obse.txt	/*MenuTapKey*
 ModAVMod	obse.txt	/*ModAVMod*
 ModActorValue2	obse.txt	/*ModActorValue2*
 ModActorValueC	obse.txt	/*ModActorValueC*
@@ -759,7 +757,6 @@ PrintTileInfo	obse.txt	/*PrintTileInfo*
 PrintToConsole	obse.txt	/*PrintToConsole*
 QuestExists	obse.txt	/*QuestExists*
 Rand	obse.txt	/*Rand*
-RefreshControlMap	obse.txt	/*RefreshControlMap*
 RefreshCurrentClimate	obse.txt	/*RefreshCurrentClimate*
 ReleaseKey	obse.txt	/*ReleaseKey*
 RemoveAllEffectItems	obse.txt	/*RemoveAllEffectItems*
@@ -947,6 +944,7 @@ SetPackageTargetData	obse.txt	/*SetPackageTargetData*
 SetPathNodeDisabled	obse.txt	/*SetPathNodeDisabled*
 SetPlayerBirthsign	obse.txt	/*SetPlayerBirthsign*
 SetPlayerProjectile	obse.txt	/*SetPlayerProjectile*
+SetPlayerSkeletonPath	obse.txt	/*SetPlayerSkeletonPath*
 SetPlayerSkillAdvances	obse.txt	/*SetPlayerSkillAdvances*
 SetPlayersLastRiddenHorse	obse.txt	/*SetPlayersLastRiddenHorse*
 SetPowerTimer	obse.txt	/*SetPowerTimer*

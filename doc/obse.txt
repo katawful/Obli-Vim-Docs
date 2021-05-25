@@ -2328,14 +2328,14 @@ code.
 `(baseAV:int) reference.GetBaseActorValueC actorValueCode:int`
 `(baseAV:int) reference.GetBaseAVC actorValueCode:int`
 
-*GetBaseAV2*
+*GetBaseAV3*
 returns the same value as the game's GetBaseAV command, but does not include
 the effects of Fortify abilities.
-`(baseAV:int) reference.GetBaseAV2 actorValue:string`
+`(baseAV:int) reference.GetBaseAV3 actorValue:string`
 
-*GetBaseAV2C*
+*GetBaseAV3C*
 as GetBaseAV2, but takes an actor value code instead of an actor value name.
-`(baseAV:int) reference.GetBaseAV2C actorValueCode:int`
+`(baseAV:int) reference.GetBaseAV3C actorValueCode:int`
 
 *GetAllies*
 for an actor in combat, returns an Array of other actors which the game
@@ -2369,6 +2369,12 @@ animation must be one defined in the editor's Gameplay > Idle Animations
 window. Pass 1 for the forceIdle parameter to force the actor to play the idle
 regardless of any other animations currently playing.
 `(idlePlayed:bool) ref.PlayIdle idleAnim:ref forceIdle:bool`
+
+*IsNaked*
+returns 1 if the calling actor is naked, 0 otherwise. Naked means without a
+lowerbody equipment, and if requireUpper is 1 also requre an upperbody
+equipped
+`(isNaked:bool) reference.IsNaked requireUpperbody:bool`
 
 ------------------------------------------------------------------------------
 AI Package				*oblivion-types-ai-package*
@@ -4495,6 +4501,11 @@ sigil stone during the current game session
 changes the speed multiplier for the player's camera when in fly camera mode.
 `(nothing) SetFlyCameraSpeedMult multiplier:float`
 
+*SetPlayerSkeletonPath*
+Set the specific path as the player's skeleton. WARNING: passing an invalid
+path or invalid nif can crash the game.
+`(nothing) SetPlayerSkeletonPath path:string`
+
 ------------------------------------------------------------------------------
 Projectile					*oblivion-types-projectile*
 
@@ -5496,11 +5507,10 @@ script line is executing.
 *GetFormFromMod*
 attempts to look up and return a form defined in another mod, prepending the
 two-digit mod index to the formID. The formID is passed in hexadecimal format,
-i.e. 0001A46B. The first two digits of the formID are ignored and can be
-omitted. The formID must be passed as a literal value as script variables
-don't have the precision necessary to store all possible formIDs. The file
-name must include the file extension. Pass "NONE" as the file name to look up
-a dynamic form in the saved game (mod index 0xFF, for example cloned forms).
+i.e. {0001A46B}. The first two digits of the formID are ignored and can be
+omitted. The file name must include the file extension. Pass "NONE" as the
+file name to look up a dynamic form in the saved game (mod index 0xFF, for
+example cloned forms).
 `(form:ref) GetFormFromMod modFileName:string formID:hexString`
 
 *ToggleFirstPerson*
@@ -5913,6 +5923,7 @@ key codes.
 
 *IsKeyPressed2*
 returns whether the specified key is currently pressed. Uses DX scancodes.
+Detect Tapped/Hold/Hammered keys but not Disabled keys.
 `(isKeyPressed:bool) IsKeyPressed2 dxScanCode:int`
 
 *GetKeyPress*
@@ -5936,25 +5947,13 @@ enables the key with the specified dx scancode. Turns off DisableKey.
 holds down the key with the specified dx scancode
 `(nothing) HoldKey dxScanCode:int`
 
-*MenuHoldKey*
-holds down the key with the specified dx scancode when a menu is open
-`(nothing) MenuHoldKey dxScanCode:int`
-
 *ReleaseKey*
 releases a held key with the specified dx scancode
-`(nothing) ReleaseKey dxScanCode:int`
-
-*MenuReleaseKey*
-releases a held key with the specified dx scancode when a menu is open
 `(nothing) ReleaseKey dxScanCode:int`
 
 *TapKey*
 presses the key with the specidied dx scancode once
 `(nothing) TapKey dxScanCode:int`
-
-*MenuTapKey*
-presses the key with the specificed dx scancode once when a menu is open
-`(nothing) MenuTapKey dxScanCode:int`
 
 *HammerKey*
 fakes keypresses every other frame of the key with the specified dx scancode
@@ -6047,13 +6046,6 @@ mouse buttonassigned to that control is pressed
 *TapControl*
 presses the key or mouse button associated with the specified control once
 `(nothing) TapControl whichControl:int`
-
-*RefreshControlMap*
-re-parses the Oblivion.ini file to update OBSE's internal map of the player's
-controls. Call this function after the player exits the Controls menu
-(menumode 1021) to detect any changes to the control layout. DEPRECATED: Input
-functions are now in sync with Oblivion control bindings.
-`(nothing) RefreshControlMap`
 
 *SetControl*
 assigns a new key to the specified control. If the specified control already
@@ -8225,6 +8217,10 @@ Name | Parameters | Notes
 	invoked when saving ini settings when quitting the game use an
 {ExitGame} handler if settings must be reset before the ini is saved at game
 	exit
+{OnKeyEvent} `key:int action:int` Invoked when the key is pressed (action 0) 
+        released (action 1) or hold (action 2). Experimental
+{OnControlEvent} `control:int action:int` Invoked when the control is pressed
+        (action 0) released (action 1) or hold (action 2). Experimental
 
 
 For events associated with block types, you may provide a specific value for
